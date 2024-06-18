@@ -24,25 +24,25 @@ Since a penalty is being awarded for every gap (ie. every mutation), our objecti
 
 We represent these two sequences in a 2D matrix with the dimensions of the matrix being (length of first sequence + 1) * (length of second sequence + 1) and initiate the matric with the values of the rows as gap penalties times the row number and values of the columns as gap penalty times the column number.
 
-![scoring-matrix-initialization](edit-this-link.jpg)
+![scoring-matrix-initialization](image-1.jpg)
 
 To fill the matrix, start from the top left corner, and keep filling row-wise till you reach the bottom right ccorner. To find the value for the position (i,j) of the matrix:
 
 matrix(i,j) = max( matrix(i-1,j) + gap_penalty, matrix(i,j+1) + gap_penalty, matrix(i-1,j-1) + match_mismatch_score)
 
-![filling-scoring-matrix](edit-this-link.jpg)
+![filling-scoring-matrix](image-2.jpg)
 
 **finding best alignment**
 
 Once the matrix is filled, start from the bottom right corner and work back the arrows till you reach the top left corner. At each place, you can move either top, left or diagonally top-left. Choose the maximum value available of the three. NOTE: There might be more than one best alignment of the two sequences.
 
-![best-alignment](edit-this-link.jpg)
+![best-alignment](image-3.jpg)
 
 **reconstructing the path obtained**
 
 There is a particular way of writing down these. If we walk back an in the diagonal, then we write down the corresponding characters. If we walk back an arrow to the left, we write the character of the sequence that is written in the horizontal firection, and write a gap '-' for he sequence written in the vertical direction, and vice cersa if we walk back an arrow in the vertical direction.
 
-![finding-best-alignment](edit-this-link.jpg)
+![finding-best-alignment](image-4.jpg)
 
 **reference code**
 
