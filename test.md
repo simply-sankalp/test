@@ -36,7 +36,7 @@ matrix(i,j) = max( matrix(i-1,j) + gap_penalty, matrix(i,j+1) + gap_penalty, mat
 
 Once the matrix is filled, start from the bottom right corner and work back the arrows till you reach the top left corner. At each place, you can move either top, left or diagonally top-left. Choose the maximum value available of the three. NOTE: There might be more than one best alignment of the two sequences.
 
-![best-alignment](image-3.jpg)
+![best-alignment](image-3.png)
 
 **reconstructing the path obtained**
 
